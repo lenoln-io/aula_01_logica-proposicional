@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lógica Proposicional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gradient-to-br from-green-50 to-emerald-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-green-100">
+      <div class="max-w-6xl mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div>
+            <h1 class="text-2xl font-bold text-green-800">
+              Lógica Proposicional
+            </h1>
+            <p class="text-green-600 text-md">
+              Lógica de Programação I - 1° Ano Técnico
+            </p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <div class="bg-green-100 px-3 py-1 rounded-full">
+              <span class="text-green-700 text-sm font-medium" id="slideCounter"
+                >1 / 8</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Progress Bar -->
+        <div class="w-full bg-green-100 rounded-full h-2 mt-4">
+          <div
+            class="progress-bar bg-green-500 h-2 rounded-full"
+            id="progressBar"
+            style="width: 12.5%"
+          ></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 py-8">
+      <!-- Slide 1: Introdução -->
+      <div class="slide active bg-white rounded-2xl shadow-lg p-8 mb-6">
+        <div class="text-center mb-8">
+          <div
+            class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <span class="text-3xl text-white">🧠</span>
+          </div>
+          <h2 class="text-4xl font-bold text-green-800 mb-4">
+            Lógica Proposicional
+          </h2>
+          <p class="text-xl text-green-600 max-w-2xl mx-auto">
+            A base fundamental para o raciocínio lógico na programação
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+            <div class="text-2xl mb-3">💡</div>
+            <h3 class="font-semibold text-green-800 mb-2">O que é?</h3>
+            <p class="text-green-700 text-sm">
+              Sistema formal para analisar argumentos usando proposições
+              verdadeiras ou falsas
+            </p>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+            <div class="text-2xl mb-3">🎯</div>
+            <h3 class="font-semibold text-green-800 mb-2">Por que estudar?</h3>
+            <p class="text-green-700 text-sm">
+              Essencial para estruturas condicionais, loops e tomada de decisões
+              em programação
+            </p>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+            <div class="text-2xl mb-3">🚀</div>
+            <h3 class="font-semibold text-green-800 mb-2">Aplicação</h3>
+            <p class="text-green-700 text-sm">
+              Base para algoritmos, validações, sistemas especialistas e
+              inteligência artificial
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Proposições -->
+      <div class="slide bg-white rounded-2xl shadow-lg p-8 mb-6">
+        <h2 class="text-3xl font-bold text-green-800 mb-6">
+          O que são Proposições?
+        </h2>
+
+        <div class="mb-8">
+          <div class="bg-green-100 border-l-4 border-green-500 p-4 mb-6">
+            <p class="text-green-800 font-medium">
+              <strong>Proposição:</strong> Uma sentença declarativa que pode ser
+              classificada como verdadeira (V) ou falsa (F), mas nunca ambas.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3
+              class="text-xl font-semibold text-green-700 mb-4 flex items-center"
+            >
+              <span class="text-green-500 mr-2">✅</span> Exemplos de
+              Proposições
+            </h3>
+            <div class="space-y-3">
+              <div
+                class="interactive-example bg-green-50 p-4 rounded-lg border border-green-200 cursor-pointer"
+                onclick="toggleTruthValue(this, true)"
+              >
+                <p class="text-green-800">"O número 10 é par"</p>
+                <span
+                  class="text-sm text-green-600 font-medium truth-value"
+                  style="display: none"
+                  >Valor: VERDADEIRO</span
+                >
+              </div>
+              <div
+                class="interactive-example bg-green-50 p-4 rounded-lg border border-green-200 cursor-pointer"
+                onclick="toggleTruthValue(this, false)"
+              >
+                <p class="text-green-800">
+                  "Python é uma linguagem de programação"
+                </p>
+                <span
+                  class="text-sm text-green-600 font-medium truth-value"
+                  style="display: none"
+                  >Valor: VERDADEIRO</span
+                >
+              </div>
+              <div
+                class="interactive-example bg-green-50 p-4 rounded-lg border border-green-200 cursor-pointer"
+                onclick="toggleTruthValue(this, false)"
+              >
+                <p class="text-green-800">"5 > 8"</p>
+                <span
+                  class="text-sm text-green-600 font-medium truth-value"
+                  style="display: none"
+                  >Valor: FALSO</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3
+              class="text-xl font-semibold text-red-700 mb-4 flex items-center"
+            >
+              <span class="text-red-500 mr-2">❌</span> NÃO são Proposições
+            </h3>
+            <div class="space-y-3">
+              <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                <p class="text-red-800">"Que horas são?"</p>
+                <span class="text-sm text-red-600"
+                  >Pergunta - não pode ser V ou F</span
+                >
+              </div>
+              <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                <p class="text-red-800">"Estude programação!"</p>
+                <span class="text-sm text-red-600"
+                  >Comando - não pode ser V ou F</span
+                >
+              </div>
+              <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                <p class="text-red-800">"x + 5 = 10"</p>
+                <span class="text-sm text-red-600"
+                  >Sentença aberta - depende do valor de x</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Conectivos Lógicos -->
+      <div class="slide bg-white rounded-2xl shadow-lg p-8 mb-6">
+        <h2 class="text-3xl font-bold text-green-800 mb-6">
+          Conectivos Lógicos
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200"
+          >
+            <div class="text-center mb-4">
+              <div class="text-3xl mb-2">¬</div>
+              <h3 class="font-bold text-green-800">NEGAÇÃO</h3>
+              <p class="text-sm text-green-600">NOT</p>
+            </div>
+            <div class="text-center">
+              <p class="text-green-700 mb-2">¬p</p>
+              <p class="text-sm text-green-600">"não p"</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200"
+          >
+            <div class="text-center mb-4">
+              <div class="text-3xl mb-2">∧</div>
+              <h3 class="font-bold text-blue-800">CONJUNÇÃO</h3>
+              <p class="text-sm text-blue-600">AND</p>
+            </div>
+            <div class="text-center">
+              <p class="text-blue-700 mb-2">p ∧ q</p>
+              <p class="text-sm text-blue-600">"p e q"</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl border border-purple-200"
+          >
+            <div class="text-center mb-4">
+              <div class="text-3xl mb-2">∨</div>
+              <h3 class="font-bold text-purple-800">DISJUNÇÃO</h3>
+              <p class="text-sm text-purple-600">OR</p>
+            </div>
+            <div class="text-center">
+              <p class="text-purple-700 mb-2">p ∨ q</p>
+              <p class="text-sm text-purple-600">"p ou q"</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl border border-orange-200"
+          >
+            <div class="text-center mb-4">
+              <div class="text-3xl mb-2">→</div>
+              <h3 class="font-bold text-orange-800">IMPLICAÇÃO</h3>
+              <p class="text-sm text-orange-600">IF...THEN</p>
+            </div>
+            <div class="text-center">
+              <p class="text-orange-700 mb-2">p → q</p>
+              <p class="text-sm text-orange-600">"se p então q"</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-xl border border-teal-200"
+          >
+            <div class="text-center mb-4">
+              <div class="text-3xl mb-2">↔</div>
+              <h3 class="font-bold text-teal-800">BICONDICIONAL</h3>
+              <p class="text-sm text-teal-600">IF AND ONLY IF</p>
+            </div>
+            <div class="text-center">
+              <p class="text-teal-700 mb-2">p ↔ q</p>
+              <p class="text-sm text-teal-600">"p se e somente se q"</p>
+            </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl border border-red-200"
+          >
+            <div class="text-center mb-4">
+              <div class="text-3xl mb-2">⊕</div>
+              <h3 class="font-bold text-red-800">DISJUNÇÃO EXCLUSIVA</h3>
+              <p class="text-sm text-red-600">XOR</p>
+            </div>
+            <div class="text-center">
+              <p class="text-red-700 mb-2">p ⊕ q</p>
+              <p class="text-sm text-red-600">"ou p ou q"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Tabela Verdade - Negação e Conjunção -->
+      <div class="slide bg-white rounded-2xl shadow-lg p-8 mb-6">
+        <h2 class="text-3xl font-bold text-green-800 mb-6">Tabelas Verdade</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold text-green-700 mb-4">
+              Negação (¬)
+            </h3>
+            <div
+              class="truth-table bg-green-50 rounded-lg p-4 border border-green-200"
+            >
+              <table class="w-full">
+                <thead>
+                  <tr class="bg-green-200">
+                    <th class="p-3 text-green-800 font-semibold">p</th>
+                    <th class="p-3 text-green-800 font-semibold">¬p</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-t border-green-200">
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium text-red-600">F</td>
+                  </tr>
+                  <tr class="border-t border-green-200">
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium text-green-600">
+                      V
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mt-4 p-3 bg-green-100 rounded-lg">
+              <p class="text-sm text-green-700">
+                <strong>Exemplo:</strong> Se p = "Está chovendo"<br />
+                Então ¬p = "Não está chovendo"
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-blue-700 mb-4">
+              Conjunção (∧)
+            </h3>
+            <div
+              class="truth-table bg-blue-50 rounded-lg p-4 border border-blue-200"
+            >
+              <table class="w-full">
+                <thead>
+                  <tr class="bg-blue-200">
+                    <th class="p-3 text-blue-800 font-semibold">p</th>
+                    <th class="p-3 text-blue-800 font-semibold">q</th>
+                    <th class="p-3 text-blue-800 font-semibold">p ∧ q</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-t border-blue-200">
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium text-green-600">
+                      V
+                    </td>
+                  </tr>
+                  <tr class="border-t border-blue-200">
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium text-red-600">F</td>
+                  </tr>
+                  <tr class="border-t border-blue-200">
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium text-red-600">F</td>
+                  </tr>
+                  <tr class="border-t border-blue-200">
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium text-red-600">F</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mt-4 p-3 bg-blue-100 rounded-lg">
+              <p class="text-sm text-blue-700">
+                <strong>Exemplo:</strong> "Tenho dinheiro E tenho tempo"<br />
+                Só é verdade se AMBAS forem verdadeiras
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Tabela Verdade - Disjunção e Implicação -->
+      <div class="slide bg-white rounded-2xl shadow-lg p-8 mb-6">
+        <h2 class="text-3xl font-bold text-green-800 mb-6">Tabelas Verdade</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold text-purple-700 mb-4">
+              Disjunção (∨)
+            </h3>
+            <div
+              class="truth-table bg-purple-50 rounded-lg p-4 border border-purple-200"
+            >
+              <table class="w-full">
+                <thead>
+                  <tr class="bg-purple-200">
+                    <th class="p-3 text-purple-800 font-semibold">p</th>
+                    <th class="p-3 text-purple-800 font-semibold">q</th>
+                    <th class="p-3 text-purple-800 font-semibold">p ∨ q</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-t border-purple-200">
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium text-green-600">
+                      V
+                    </td>
+                  </tr>
+                  <tr class="border-t border-purple-200">
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium text-green-600">
+                      V
+                    </td>
+                  </tr>
+                  <tr class="border-t border-purple-200">
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium text-green-600">
+                      V
+                    </td>
+                  </tr>
+                  <tr class="border-t border-purple-200">
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium text-red-600">F</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mt-4 p-3 bg-purple-100 rounded-lg">
+              <p class="text-sm text-purple-700">
+                <strong>Exemplo:</strong> "Vou de carro OU de ônibus"<br />
+                É falsa apenas quando AMBAS são falsas
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-orange-700 mb-4">
+              Implicação (→)
+            </h3>
+            <div
+              class="truth-table bg-orange-50 rounded-lg p-4 border border-orange-200"
+            >
+              <table class="w-full">
+                <thead>
+                  <tr class="bg-orange-200">
+                    <th class="p-3 text-orange-800 font-semibold">p</th>
+                    <th class="p-3 text-orange-800 font-semibold">q</th>
+                    <th class="p-3 text-orange-800 font-semibold">p → q</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-t border-orange-200">
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium text-green-600">
+                      V
+                    </td>
+                  </tr>
+                  <tr class="border-t border-orange-200">
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium text-red-600">F</td>
+                  </tr>
+                  <tr class="border-t border-orange-200">
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium">V</td>
+                    <td class="p-3 text-center font-medium text-green-600">
+                      V
+                    </td>
+                  </tr>
+                  <tr class="border-t border-orange-200">
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium">F</td>
+                    <td class="p-3 text-center font-medium text-green-600">
+                      V
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mt-4 p-3 bg-orange-100 rounded-lg">
+              <p class="text-sm text-orange-700">
+                <strong>Exemplo:</strong> "Se chover, então fico em casa"<br />
+                Só é falsa quando chove e não fico em casa
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Aplicação na Programação -->
+      <div class="slide bg-white rounded-2xl shadow-lg p-8 mb-6">
+        <h2 class="text-3xl font-bold text-green-800 mb-6">
+          Aplicação na Programação
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold text-green-700 mb-4">
+              Estruturas Condicionais
+            </h3>
+            <div class="bg-gray-900 rounded-lg p-4 mb-4 w-[365px]">
+              <pre
+                class="text-green-400 text-sm"
+              ><code>if (idade >= 18 && temCarteira) {
+  System.out.println("Pode dirigir");
+} else {
+  System.out.println("Não pode dirigir");
+}</code></pre>
+            </div>
+            <div class="bg-green-100 p-4 rounded-lg w-[365px]">
+              <p class="text-green-700 text-sm">
+                <strong>Lógica:</strong> (idade ≥ 18) ∧ (temCarteira)<br />
+                Ambas condições devem ser verdadeiras
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-blue-700 mb-4">
+              Validação de Dados
+            </h3>
+            <div class="bg-gray-900 rounded-lg p-4 mb-4">
+              <pre
+                class="text-green-400 text-sm"
+              ><code>if (email.contains("@") AND 
+    senha.length >= 8) {
+    login_valido = true
+} else {
+    login_valido = false;
+}</code></pre>
+            </div>
+            <div class="bg-blue-100 p-4 rounded-lg">
+              <p class="text-blue-700 text-sm">
+                <strong>Lógica:</strong> (email válido) ∧ (senha forte)<br />
+                Sistema de autenticação seguro
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <h3 class="text-xl font-semibold text-purple-700 mb-4">
+            Exercício Interativo
+          </h3>
+          <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+            <p class="text-purple-800 mb-4">
+              <strong>Cenário:</strong> Sistema de acesso a uma biblioteca
+              digital
+            </p>
+            <div class="grid md:grid-cols-3 gap-4 mb-4">
+              <div>
+                <label class="block text-sm font-medium text-purple-700 mb-2"
+                  >É estudante?</label
+                >
+                <select
+                  id="estudante"
+                  class="w-full p-2 border border-purple-300 rounded-lg"
+                  onchange="avaliarAcesso()"
+                >
+                  <option value="">Selecione</option>
+                  <option value="true">Sim</option>
+                  <option value="false">Não</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-purple-700 mb-2"
+                  >Tem cadastro?</label
+                >
+                <select
+                  id="cadastro"
+                  class="w-full p-2 border border-purple-300 rounded-lg"
+                  onchange="avaliarAcesso()"
+                >
+                  <option value="">Selecione</option>
+                  <option value="true">Sim</option>
+                  <option value="false">Não</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-purple-700 mb-2"
+                  >Pagou taxa?</label
+                >
+                <select
+                  id="taxa"
+                  class="w-full p-2 border border-purple-300 rounded-lg"
+                  onchange="avaliarAcesso()"
+                >
+                  <option value="">Selecione</option>
+                  <option value="true">Sim</option>
+                  <option value="false">Não</option>
+                </select>
+              </div>
+            </div>
+            <div
+              id="resultado"
+              class="p-4 rounded-lg text-center font-medium"
+              style="display: none"
+            ></div>
+            <p class="text-sm text-purple-600 mt-2">
+              <strong>Regra:</strong> Acesso liberado se: (É estudante E tem
+              cadastro) OU (não é estudante E tem cadastro E pagou taxa)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Exercícios Práticos -->
+      <div class="slide bg-white rounded-2xl shadow-lg p-8 mb-6">
+        <h2 class="text-3xl font-bold text-green-800 mb-6">
+          Exercícios Práticos
+        </h2>
+
+        <div class="space-y-6">
+          <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+            <h3 class="text-lg font-semibold text-green-800 mb-4">
+              Exercício 1: Identifique as Proposições
+            </h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <div class="flex items-center space-x-3">
+                  <input
+                    type="checkbox"
+                    id="ex1a"
+                    class="w-4 h-4 text-green-600"
+                  />
+                  <label for="ex1a" class="text-green-700"
+                    >"O Python é uma linguagem interpretada"</label
+                  >
+                </div>
+                <div class="flex items-center space-x-3">
+                  <input
+                    type="checkbox"
+                    id="ex1b"
+                    class="w-4 h-4 text-green-600"
+                  />
+                  <label for="ex1b" class="text-green-700"
+                    >"Quantos anos você tem?"</label
+                  >
+                </div>
+                <div class="flex items-center space-x-3">
+                  <input
+                    type="checkbox"
+                    id="ex1c"
+                    class="w-4 h-4 text-green-600"
+                  />
+                  <label for="ex1c" class="text-green-700">"2 + 2 = 5"</label>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <input
+                    type="checkbox"
+                    id="ex1d"
+                    class="w-4 h-4 text-green-600"
+                  />
+                  <label for="ex1d" class="text-green-700"
+                    >"Estude mais!"</label
+                  >
+                </div>
+              </div>
+              <div class="bg-white p-4 rounded-lg">
+                <button
+                  onclick="verificarEx1()"
+                  class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                >
+                  Verificar Respostas
+                </button>
+                <div
+                  id="resultadoEx1"
+                  class="mt-3 text-sm"
+                  style="display: none"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <h3 class="text-lg font-semibold text-blue-800 mb-4">
+              Exercício 2: Complete a Tabela Verdade
+            </h3>
+            <p class="text-blue-700 mb-4">
+              Complete a tabela para: (p ∧ q) ∨ (¬p)
+            </p>
+            <div class="overflow-x-auto">
+              <table class="w-full bg-white rounded-lg">
+                <thead>
+                  <tr class="bg-blue-200">
+                    <th class="p-3 text-blue-800">p</th>
+                    <th class="p-3 text-blue-800">q</th>
+                    <th class="p-3 text-blue-800">¬p</th>
+                    <th class="p-3 text-blue-800">p ∧ q</th>
+                    <th class="p-3 text-blue-800">(p ∧ q) ∨ (¬p)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-t">
+                    <td class="p-3 text-center">V</td>
+                    <td class="p-3 text-center">V</td>
+                    <td class="p-3 text-center">F</td>
+                    <td class="p-3 text-center">V</td>
+                    <td class="p-3 text-center">
+                      <select class="border rounded px-2 py-1" id="r1">
+                        <option value="">?</option>
+                        <option value="V">V</option>
+                        <option value="F">F</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr class="border-t">
+                    <td class="p-3 text-center">V</td>
+                    <td class="p-3 text-center">F</td>
+                    <td class="p-3 text-center">F</td>
+                    <td class="p-3 text-center">F</td>
+                    <td class="p-3 text-center">
+                      <select class="border rounded px-2 py-1" id="r2">
+                        <option value="">?</option>
+                        <option value="V">V</option>
+                        <option value="F">F</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr class="border-t">
+                    <td class="p-3 text-center">F</td>
+                    <td class="p-3 text-center">V</td>
+                    <td class="p-3 text-center">V</td>
+                    <td class="p-3 text-center">F</td>
+                    <td class="p-3 text-center">
+                      <select class="border rounded px-2 py-1" id="r3">
+                        <option value="">?</option>
+                        <option value="V">V</option>
+                        <option value="F">F</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr class="border-t">
+                    <td class="p-3 text-center">F</td>
+                    <td class="p-3 text-center">F</td>
+                    <td class="p-3 text-center">V</td>
+                    <td class="p-3 text-center">F</td>
+                    <td class="p-3 text-center">
+                      <select class="border rounded px-2 py-1" id="r4">
+                        <option value="">?</option>
+                        <option value="V">V</option>
+                        <option value="F">F</option>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button
+              onclick="verificarEx2()"
+              class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Verificar Tabela
+            </button>
+            <div
+              id="resultadoEx2"
+              class="mt-3 text-sm"
+              style="display: none"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Resumo e Próximos Passos -->
+      <div class="slide bg-white rounded-2xl shadow-lg p-8 mb-6">
+        <div class="text-center mb-8">
+          <div
+            class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <span class="text-3xl text-white">🎯</span>
+          </div>
+          <h2 class="text-3xl font-bold text-green-800 mb-4">Resumo da Aula</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-semibold text-green-700 mb-4">
+              O que aprendemos:
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-3">
+                <span class="text-green-500 mt-1">✓</span>
+                <span class="text-green-700"
+                  >Conceito de proposições e valores lógicos</span
+                >
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-green-500 mt-1">✓</span>
+                <span class="text-green-700"
+                  >Conectivos lógicos fundamentais</span
+                >
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-green-500 mt-1">✓</span>
+                <span class="text-green-700"
+                  >Construção e interpretação de tabelas verdade</span
+                >
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-green-500 mt-1">✓</span>
+                <span class="text-green-700"
+                  >Aplicação prática na programação</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-blue-700 mb-4">
+              Próximos passos:
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-3">
+                <span class="text-blue-500 mt-1">→</span>
+                <span class="text-blue-700">Equivalências lógicas</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-blue-500 mt-1">→</span>
+                <span class="text-blue-700">Leis de De Morgan</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-blue-500 mt-1">→</span>
+                <span class="text-blue-700"
+                  >Simplificação de expressões lógicas</span
+                >
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-blue-500 mt-1">→</span>
+                <span class="text-blue-700"
+                  >Algoritmos e estruturas de decisão</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-green-100 to-blue-100 p-6 rounded-xl">
+          <h3 class="text-lg font-semibold text-green-800 mb-3">
+            💡 Dica de Estudo
+          </h3>
+          <p class="text-green-700">
+            Pratique criando tabelas verdade para expressões mais complexas.
+            Tente identificar padrões lógicos em situações do dia a dia e pense
+            como eles se aplicariam na programação!
+          </p>
+        </div>
+
+        <div class="text-center mt-8">
+          <p class="text-green-600 font-medium">Dúvidas? Vamos discutir! 🚀</p>
+        </div>
+      </div>
+
+      <!-- Slide 9: Trabalho -->
+      <div class="slide bg-white rounded-2xl shadow-lg p-8 mb-6">
+        <div class="text-center mb-8">
+          <div
+            class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <span class="text-3xl text-white">
+              <img
+                src="./assets/happy-work.png"
+                alt="Desenho de uma mulher sorrindo em frente ao computador com as mãos levantadas."
+              />
+            </span>
+          </div>
+          <h2 class="text-3xl font-bold text-green-800 mb-8">
+            Trabalho para próxima aula
+          </h2>
+          <a
+            href="https://logica-programacao-i-haydee.lovable.app"
+            id="work-btn"
+            class="bg-green-500 text-white p-2 mt-3 rounded-full hover:bg-green-600 transition-colors"
+            target="_blank"
+          >
+            Clique aqui para realizar o trabalho
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="fixed bottom-6 left-1/2 transform -translate-x-1/2">
+      <div
+        class="bg-white rounded-full shadow-lg border border-green-200 px-6 py-3"
+      >
+        <div class="flex items-center space-x-4 pt-5">
+          <button
+            onclick="previousSlide()"
+            id="prevBtn"
+            class="bg-green-500 text-white p-2 rounded-full hover:bg-green-600 transition-colors"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              ></path>
+            </svg>
+          </button>
+
+          <div class="flex space-x-2">
+            <div
+              class="w-2 h-2 bg-green-300 rounded-full slide-dot active"
+              data-slide="0"
+            ></div>
+            <div
+              class="w-2 h-2 bg-green-300 rounded-full slide-dot"
+              data-slide="1"
+            ></div>
+            <div
+              class="w-2 h-2 bg-green-300 rounded-full slide-dot"
+              data-slide="2"
+            ></div>
+            <div
+              class="w-2 h-2 bg-green-300 rounded-full slide-dot"
+              data-slide="3"
+            ></div>
+            <div
+              class="w-2 h-2 bg-green-300 rounded-full slide-dot"
+              data-slide="4"
+            ></div>
+            <div
+              class="w-2 h-2 bg-green-300 rounded-full slide-dot"
+              data-slide="5"
+            ></div>
+            <div
+              class="w-2 h-2 bg-green-300 rounded-full slide-dot"
+              data-slide="6"
+            ></div>
+            <div
+              class="w-2 h-2 bg-green-300 rounded-full slide-dot"
+              data-slide="7"
+            ></div>
+            <div
+              class="w-2 h-2 bg-green-300 rounded-full slide-dot"
+              data-slide="8"
+            ></div>
+          </div>
+
+          <button
+            id="nextBtn"
+            class="bg-green-500 text-white p-2 rounded-full hover:bg-green-600 transition-colors"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
