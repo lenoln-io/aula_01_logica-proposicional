@@ -4,8 +4,6 @@ export function avaliarAcesso() {
 	let taxa = document.getElementById("taxa").value;
 	const resultado = document.getElementById("resultado");
 
-	alert(`${estudante} + ${cadastro} + ${taxa}`);
-
 	if (estudante === "" || cadastro === "" || taxa === "") {
 		resultado.style.display = "none";
 		return;
