@@ -545,7 +545,6 @@
                 <select
                   id="estudante"
                   class="w-full p-2 border border-purple-300 rounded-lg"
-                  onchange="avaliarAcesso()"
                 >
                   <option value="">Selecione</option>
                   <option value="true">Sim</option>
@@ -559,7 +558,6 @@
                 <select
                   id="cadastro"
                   class="w-full p-2 border border-purple-300 rounded-lg"
-                  onchange="avaliarAcesso()"
                 >
                   <option value="">Selecione</option>
                   <option value="true">Sim</option>
@@ -573,7 +571,6 @@
                 <select
                   id="taxa"
                   class="w-full p-2 border border-purple-300 rounded-lg"
-                  onchange="avaliarAcesso()"
                 >
                   <option value="">Selecione</option>
                   <option value="true">Sim</option>
@@ -648,6 +645,7 @@
               </div>
               <div class="bg-white p-4 rounded-lg">
                 <button
+                  id="verificarEx1Btn"
                   onclick="verificarEx1()"
                   class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
                 >
@@ -737,6 +735,7 @@
               </table>
             </div>
             <button
+              id="verificarEx2Btn"
               onclick="verificarEx2()"
               class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
             >

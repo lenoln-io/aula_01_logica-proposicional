@@ -1,8 +1,19 @@
 export function avaliarAcesso() {
-	const estudante = document.getElementById("estudante").value === "true";
-	const cadastro = document.getElementById("cadastro").value === "true";
-	const taxa = document.getElementById("taxa").value === "true";
+	let estudante = document.getElementById("estudante").value;
+	let cadastro = document.getElementById("cadastro").value;
+	let taxa = document.getElementById("taxa").value;
 	const resultado = document.getElementById("resultado");
+
+	alert(`${estudante} + ${cadastro} + ${taxa}`);
+
+	if (estudante === "" || cadastro === "" || taxa === "") {
+		resultado.style.display = "none";
+		return;
+	}
+
+	estudante = estudante === "true";
+	cadastro = cadastro === "true";
+	taxa = taxa === "true";
 
 	const temAcesso = (estudante && cadastro) || (!estudante && cadastro && taxa);
 
